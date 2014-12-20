@@ -93,9 +93,9 @@
      world.castShadow = true;
      world.receiveShadow = true;
      //scene.add(world);
-     console.log(world.matrixWorld.elements[10]);
+    // console.log(world.matrixWorld.elements[10]);
      world.matrixWorld.elements[10] = 0.1;
-     console.log(world.matrixWorld.elements[10]);
+    // console.log(world.matrixWorld.elements[10]);
      world.matrixWorldNeedsUpdate = true;
   //   console.log(world);
 
@@ -118,7 +118,7 @@
          color: 0xffdd99
      });
      var planeGeometry = new THREE.PlaneGeometry(80, 60, 10, 10);
-     console.log(planeGeometry);
+   //  console.log(planeGeometry);
      for (var i = 0; i < (planeGeometry.vertices.length); i++) {
          var qq = planeGeometry.vertices[i].x;
          planeGeometry.vertices[i].z = 0.005 * qq * qq;
