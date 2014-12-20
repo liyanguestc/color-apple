@@ -16,9 +16,10 @@
  var textRadius = 1.75 * worldRadius;
  var relcoeff = -0.3;
  var spotLight;
+ var newMeshReady = false;
 
  window.onload = function() {
-     console.log("onload");
+    // console.log("onload");
      Init();
      animate();
  };
@@ -58,6 +59,9 @@
 
  function animate() {
      requestAnimationFrame(animate);
+     if(false === newMeshReady){
+       return;
+     }
    
      mesh1.rotation.set(-Math.PI / 2 + 0.2 * Math.sin(3.2 * LEIA.time), 0 * Math.PI / 2, -Math.PI / 2 + 0.25 * Math.sin(4 * LEIA.time));
      mesh1.position.z = -2;
