@@ -19,7 +19,7 @@
  var newMeshReady = false;
 
  window.onload = function() {
-    // console.log("onload");
+     // console.log("onload");
      Init();
      animate();
  };
@@ -44,7 +44,12 @@
          colorMode: _colorMode,
          devicePixelRatio: 1
      });
-     renderer.Leia_setSize(windowWidth, 0.75 * windowWidth);
+     if (0.75 * windowWidth < windowHeight) {
+         renderer.Leia_setSize(windowWidth, 0.75 * windowWidth);
+     } else {
+         renderer.Leia_setSize(windowHeight * 1.33, windowHeight);
+     }
+
      document.body.appendChild(renderer.domElement);
 
      //add object to Scene
@@ -59,10 +64,10 @@
 
  function animate() {
      requestAnimationFrame(animate);
-     if(false === newMeshReady){
-       return;
+     if (false === newMeshReady) {
+         return;
      }
-   
+
      mesh1.rotation.set(-Math.PI / 2 + 0.2 * Math.sin(3.2 * LEIA.time), 0 * Math.PI / 2, -Math.PI / 2 + 0.25 * Math.sin(4 * LEIA.time));
      mesh1.position.z = -2;
      renderer.setClearColor(new THREE.Color().setRGB(1.0, 1.0, 1.0));
@@ -97,22 +102,22 @@
      world.castShadow = true;
      world.receiveShadow = true;
      //scene.add(world);
-    // console.log(world.matrixWorld.elements[10]);
+     // console.log(world.matrixWorld.elements[10]);
      world.matrixWorld.elements[10] = 0.1;
-    // console.log(world.matrixWorld.elements[10]);
+     // console.log(world.matrixWorld.elements[10]);
      world.matrixWorldNeedsUpdate = true;
-  //   console.log(world);
+     //   console.log(world);
 
-    /* var worldCloudsGeometry = new THREE.SphereGeometry(1.02 * worldRadius, 32, 32);
-     worldClouds = new THREE.Mesh(
-         worldCloudsGeometry,
-         new THREE.MeshPhongMaterial({
-             map: THREE.ImageUtils.loadTexture('resource/world_clouds.png'),
-             transparent: true
-         })
-     );
-     worldClouds.position.z = z0;
-     scene.add(worldClouds);*/
+     /* var worldCloudsGeometry = new THREE.SphereGeometry(1.02 * worldRadius, 32, 32);
+      worldClouds = new THREE.Mesh(
+          worldCloudsGeometry,
+          new THREE.MeshPhongMaterial({
+              map: THREE.ImageUtils.loadTexture('resource/world_clouds.png'),
+              transparent: true
+          })
+      );
+      worldClouds.position.z = z0;
+      scene.add(worldClouds);*/
      // background Plane
      var planeTexture = new THREE.ImageUtils.loadTexture('resource/world_galaxy_starfield.png');
      planeTexture.wrapS = planeTexture.wrapT = THREE.RepeatWrapping;
@@ -122,7 +127,7 @@
          color: 0xffdd99
      });
      var planeGeometry = new THREE.PlaneGeometry(80, 60, 10, 10);
-   //  console.log(planeGeometry);
+     //  console.log(planeGeometry);
      for (var i = 0; i < (planeGeometry.vertices.length); i++) {
          var qq = planeGeometry.vertices[i].x;
          planeGeometry.vertices[i].z = 0.005 * qq * qq;
