@@ -44,11 +44,13 @@
          colorMode: _colorMode,
          devicePixelRatio: 1
      });
-     if (0.75 * windowWidth < windowHeight) {
-         renderer.Leia_setSize(windowWidth, 0.75 * windowWidth);
-     } else {
-         renderer.Leia_setSize(windowHeight * 1.33, windowHeight);
-     }
+    
+     renderer.Leia_setSize({
+                          width: windowWidth,
+                          height:windowHeight,
+                         autoFit:true
+                        });
+    
 
      document.body.appendChild(renderer.domElement);
 
