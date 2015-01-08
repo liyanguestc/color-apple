@@ -19,12 +19,16 @@
             y: 0.00,
             z: -4.21
         };
-        var _filterA =  0.5;
-        var _filterB = -0.21;
-        var _filterC = -0.06;
         var _holoScreenSize = 86.08;
         var _up = 43.04;
         var _down = -43.04;
+      
+      //filter tuning parameters:
+      //supersample: [a 1 a]
+      //sharpen: [c b 1 b c]
+        var _filterA =  0.5;
+        var _filterB = -0.21;
+        var _filterC = -0.06;
     </script>
     <style type="text/css">
         body {
