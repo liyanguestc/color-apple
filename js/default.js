@@ -80,6 +80,9 @@
          holoCamFov: _camFov,
          upclip: _up,
          downclip: _down,
+         filterA: _filterA,
+        filterB: _filterB,
+        filterC: _filterC,
          messageFlag: _messageFlag
      });
  }
