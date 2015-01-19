@@ -1,6 +1,4 @@
- var windowWidth = window.innerWidth,
-     windowHeight = window.innerHeight;
- var camera, renderer, scene;
+var camera, renderer, scene;
 
  // add your global variables here:
  var helloWorldMesh;
@@ -44,16 +42,8 @@
          colorMode: _colorMode,
          devicePixelRatio: 1
      });
-    
-     renderer.Leia_setSize({
-                          width: windowWidth,
-                          height:windowHeight,
-                         autoFit:true
-                        });
-    
-
-     document.body.appendChild(renderer.domElement);
-
+    Leia_addRender(renderer);
+      
      //add object to Scene
      addObjectsToScene();
 
