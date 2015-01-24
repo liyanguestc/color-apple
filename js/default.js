@@ -96,43 +96,15 @@ function addObjectsToScene() {
         specular: new THREE.Color('grey'),
         color: 0xffdd99
     });
-    var worldGeometry = new THREE.SphereGeometry(worldRadius, 30, 30);
-    world = new THREE.Mesh(worldGeometry, worldMaterial);
-    world.position.z = z0;
-    world.castShadow = true;
-    world.receiveShadow = true;
-    //scene.add(world);
-    // console.log(world.matrixWorld.elements[10]);
-    world.matrixWorld.elements[10] = 0.1;
-    // console.log(world.matrixWorld.elements[10]);
-    world.matrixWorldNeedsUpdate = true;
-    //   console.log(world);
 
-    /* var worldCloudsGeometry = new THREE.SphereGeometry(1.02 * worldRadius, 32, 32);
-     worldClouds = new THREE.Mesh(
-         worldCloudsGeometry,
-         new THREE.MeshPhongMaterial({
-             map: THREE.ImageUtils.loadTexture('resource/world_clouds.png'),
-             transparent: true
-         })
-     );
-     worldClouds.position.z = z0;
-     scene.add(worldClouds);*/
     // background Plane
-    var planeTexture = new THREE.ImageUtils.loadTexture('resource/world_galaxy_starfield.png');
-    planeTexture.wrapS = planeTexture.wrapT = THREE.RepeatWrapping;
-    planeTexture.repeat.set(1, 1);
-    var planeMaterial = new THREE.MeshPhongMaterial({
-        map: planeTexture,
-        color: 0xffdd99
-    });
     var planeGeometry = new THREE.PlaneGeometry(80, 60, 10, 10);
-    //  console.log(planeGeometry);
+
     for (var i = 0; i < (planeGeometry.vertices.length); i++) {
         var qq = planeGeometry.vertices[i].x;
         planeGeometry.vertices[i].z = 0.005 * qq * qq;
     }
-    //plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    
     plane = new THREE.Mesh(planeGeometry, worldMaterial);
     plane.position.z = -8;
     plane.castShadow = false;
