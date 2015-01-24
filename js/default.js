@@ -148,7 +148,6 @@ function addObjectsToScene() {
     helloWorldMesh.position.set(hwbbx, hwbby, 4);
     scene.add(helloWorldMesh);
 
-    // readSTLs('resource/AppleLogo_5k.stl', '', '');
     function callback(mesh) {
         mesh.scale.set(45, 45, 45);
         scene.add(mesh);
