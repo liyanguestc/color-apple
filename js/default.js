@@ -41,7 +41,7 @@ function Init() {
         colorMode: _colorMode,
         devicePixelRatio: 1
     });
-    Leia_addRender(renderer);
+    Leia_addRender(renderer,{bFPSVisible:true});
 
     //add object to Scene
     addObjectsToScene();
