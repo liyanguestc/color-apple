@@ -26,8 +26,9 @@ function Init() {
 
     //setup camera
     //setup camera
-    camera = new LeiaCamera({   dCtoZDP:_ZDPDistanceToCamera,
-        zdpNormal:new THREE.Vector3(_ZDPNormal.x, _ZDPNormal.y, _ZDPNormal.z),
+    camera = new LeiaCamera({
+        dCtoZDP: _ZDPDistanceToCamera,
+        zdpNormal: new THREE.Vector3(_ZDPNormal.x, _ZDPNormal.y, _ZDPNormal.z),
         targetPosition: new THREE.Vector3(_ZDPCenter.x, _ZDPCenter.y, _ZDPCenter.z)
     });
     scene.add(camera);
@@ -40,10 +41,12 @@ function Init() {
         colorMode: _colorMode,
         devicePixelRatio: 1,
         ZDPSize: _ZDPSize,
-        tunedsp:_maxDisparity,
+        tunedsp: _maxDisparity,
         messageFlag: _targetEnvironment
     });
-    Leia_addRender(renderer,{bFPSVisible:true});
+    Leia_addRender(renderer, {
+        bFPSVisible: true
+    });
 
     //add object to Scene
     addObjectsToScene();
@@ -98,7 +101,7 @@ function addObjectsToScene() {
         var qq = planeGeometry.vertices[i].x;
         planeGeometry.vertices[i].z = 0.005 * qq * qq;
     }
-    
+
     plane = new THREE.Mesh(planeGeometry, worldMaterial);
     plane.position.z = -8;
     plane.castShadow = false;
