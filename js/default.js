@@ -16,10 +16,10 @@ var relcoeff = -0.3;
 var spotLight;
 var meshArray = [];
 
-head.ready(function() {
+window.onload = function() {
     Init();
     animate();
-});
+};
 
 function Init() {
     scene = new THREE.Scene();
