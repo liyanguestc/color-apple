@@ -40,8 +40,6 @@ function Init() {
     renderMode: _renderMode,
     colorMode: _colorMode,
     devicePixelRatio: 1,
-    ZDPSize: _ZDPSize,
-    tunedsp: _maxDisparity,
     messageFlag: _targetEnvironment
   });
   Leia_addRender(renderer, {
