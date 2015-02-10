@@ -17,14 +17,14 @@ var spotLight;
 var meshArray = [];
 
 window.onload = function () {
-  Init();
-  animate();
+  LEIA.physicalScreen.InitFromExternalJson('https://s3.amazonaws.com/leiacore/config.json',function(){
+    Init();
+    animate();
+  });
 };
 
 function Init() {
   LEIA.virtualScreen.Init();
-  LEIA.physicalScreen.InitFromExternalJson('https://s3.amazonaws.com/leiacore/config.json');
-  LEIA.physicalScreen.resolution = new THREE.Vector2(200,150);
   scene = new THREE.Scene();
 
   //setup camera
